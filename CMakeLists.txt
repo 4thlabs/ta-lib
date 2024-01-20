@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
-PROJECT(TaLib)
+PROJECT(ta-lib)
 
 SET(TA_LIB_VERSION_MAJOR 0)
 SET(TA_LIB_VERSION_MINOR 6)
@@ -316,26 +316,26 @@ TARGET_INCLUDE_DIRECTORIES(ta_lib_static
     $<INSTALL_INTERFACE:include>
   )
 
-install(TARGETS ta_lib ta_lib_static EXPORT TaLibTargets DESTINATION lib)
+install(TARGETS ta_lib ta_lib_static EXPORT ta-libTargets DESTINATION lib)
 install(FILES ${ta-lib_HEADERS} DESTINATION include)
-install(EXPORT TaLibTargets FILE TaLibTargets.cmake DESTINATION lib/cmake/TaLib)
+install(EXPORT ta-libTargets FILE ta-libTargets.cmake DESTINATION lib/cmake/ta-lib)
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.cmake.in
-  "${CMAKE_CURRENT_BINARY_DIR}/TaLibConfig.cmake"
-  INSTALL_DESTINATION "lib/cmake/TaLib"
+  "${CMAKE_CURRENT_BINARY_DIR}/ta-libConfig.cmake"
+  INSTALL_DESTINATION "lib/cmake/ta-lib"
   NO_SET_AND_CHECK_MACRO
   NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 
 write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/TaLibConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/ta-libConfigVersion.cmake"
   VERSION "${TA_LIB_VERSION_FULL}"
   COMPATIBILITY AnyNewerVersion
 )
 
 install(FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/TaLibConfig.cmake
-  ${CMAKE_CURRENT_BINARY_DIR}/TaLibConfigVersion.cmake
-  DESTINATION lib/cmake/TaLib
+  ${CMAKE_CURRENT_BINARY_DIR}/ta-libConfig.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/ta-libConfigVersion.cmake
+  DESTINATION lib/cmake/ta-lib
 )
