@@ -8,7 +8,6 @@ Makefile.in
 .deps
 .libs
 .dirstamp
-config.*
 ta-lib.dpkg
 ta-lib.spec
 missing
